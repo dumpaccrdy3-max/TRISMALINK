@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Link as LinkIcon, List, BarChart3, Plus } from 'lucide-react'
+import type { Session } from 'next-auth'
 
 export default function DashboardPage() {
-  const { data: session } = useSession()
+  const { data: session } = useSession() as { data: Session | null }
 
   const stats = [
     {

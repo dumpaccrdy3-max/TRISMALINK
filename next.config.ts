@@ -21,11 +21,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb',
-    },
-  },
+  turbopack: {},
 };
 
 export default nextConfig;

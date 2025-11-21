@@ -5,16 +5,17 @@ import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import { 
-  LayoutDashboard, 
-  Link as LinkIcon, 
-  List, 
-  BarChart3, 
-  Settings, 
+import {
+  LayoutDashboard,
+  Link as LinkIcon,
+  List,
+  BarChart3,
+  Settings,
   LogOut,
   Menu
 } from 'lucide-react'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import type { Session } from 'next-auth'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
@@ -29,7 +30,7 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode
 }) {
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession() as { data: Session | null; status: string }
   const router = useRouter()
   const pathname = usePathname()
 
